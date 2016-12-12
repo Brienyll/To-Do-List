@@ -3,8 +3,11 @@ var todoList = {
   displayTodos: function() {
     console.log('My Todos', this.todos);
   },
-  addTodo: function (todo) {
-    this.todos.push(todo);
+  addTodo: function (todoText) {
+    this.todos.push({
+      todoText: todoText,
+      completed: false
+    });
     this.displayTodos();
   },
   changeTodo: function(position, newValue) {
