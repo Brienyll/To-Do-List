@@ -1,9 +1,12 @@
 var todoList = {
   todos: ['item 1', 'item 2', 'item 3'],
   displayTodos: function() {
-    console.log('My Todos:');
-    for (var i =0; i < this.todos.length; i++) {
-      console.log(this.todos[i].todoText);
+    if (this.todos.length === 0) {
+      console.log('Your list is empty');
+     } else {
+        console.log('My Todos:');
+        for (var i =0; i < this.todos.length; i++) {
+          console.log(this.todos[i].todoText);
     }
   },
   addTodo: function (todoText) {
