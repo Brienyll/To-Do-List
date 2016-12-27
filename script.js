@@ -80,5 +80,10 @@ var handlers = {
     var deleteTodoPositionInput = document.getElementById("deleteTodoPositionInput");
     todoList.deleteTodo(deleteTodoPositionInput.valueAsNumber);
     deleteTodoPositionInput.value = '';
+  },
+  toggleCompleted: function(){
+    let toggleCompletedPositionInput = document.getElementById("toggleCompletedPositionInput");
+    todoList.toggleCompleted(toggleCompletedPositionInput.valueAsNumber);
+    toggleCompletedPositionInput.value = '';
   }
 };
