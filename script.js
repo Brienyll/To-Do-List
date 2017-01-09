@@ -122,5 +122,20 @@ todosUl.addEventListener('click', function(event){
   //check if elementClicked is a delete button
   if (elementClicked.className === 'deleteButton'){
     handlers.deleteTodo(parseInt(elementClicked.parentNode.id));
+  },
+  setUpEventListeners: function(){
+        var todosUl = document.querySelector('ul');
+    todosUl.addEventListener('click', function(event){
+      
+      //get element that was clicked
+      var elementClicked = event.target;
+      
+      //check if elementClicked is a delete button
+      if (elementClicked.className === 'deleteButton'){
+        handlers.deleteTodo(parseInt(elementClicked.parentNode.id));
+      }
+    });
   }
-});
+};
+
+view.setupEventLiseners();
