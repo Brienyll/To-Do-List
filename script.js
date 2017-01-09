@@ -55,28 +55,29 @@ var todoList = {
 var handlers = {
   toggleAll: function(){
     todoList.toggleAll();
+    view.displayTodos();
   },
   addTodo: function(){
     var addTodoTextInput = document.getElementById("addTodoTextInput");
     todoList.addTodo(addTodoTextInput.value);
-    addTodoTextInput.value = '';
+    view.displayTodos();
   },
   changeTodo: function(){
     var changeTodoPositionInput = document.getElementById("changeTodoPositionInput");
     var changeTodoTextInput = document.getElementById("changeTodoTextInput");
     todoList.changeTodo(changeTodoPositionInput.valueAsNumber, changeTodoTextInput.value);
     changeTodoPositionInput.value = '';
-    changeTodoTextInput.value = '';
+    view.displayTodos();
   },
   deleteTodo: function(){
-    var deleteTodoPositionInput = document.getElementById("deleteTodoPositionInput");
     todoList.deleteTodo(deleteTodoPositionInput.valueAsNumber);
-    deleteTodoPositionInput.value = '';
+    view.displayTodos();
   },
   toggleCompleted: function(){
     let toggleCompletedPositionInput = document.getElementById("toggleCompletedPositionInput");
     todoList.toggleCompleted(toggleCompletedPositionInput.valueAsNumber);
     toggleCompletedPositionInput.value = '';
+    view.displayTodos();
   }
 };
 
@@ -111,4 +112,15 @@ var view = {
 var todosUl = document.querySelector('ul');
 todosUl.addEventListener('click', function(event){
   console.log(event);
+});
+var todosUl = document.querySelector('ul');
+todosUl.addEventListener('click', function(event){
+  
+  //get element that was clicked
+  var elementClicked = event.target;
+  
+  //check if elementClicked is a delete button
+  if (elementClicked.className === 'deleteButton'){
+    handlers.deleteTodo(parseInt(elementClicked.parentNode.id));
+  }
 });
