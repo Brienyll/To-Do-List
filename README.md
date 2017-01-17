@@ -1,2 +1,2 @@
 # To-Do-List
-watch and code project
+A simple To Do List using Javascript
